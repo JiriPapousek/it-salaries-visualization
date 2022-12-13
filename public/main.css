@@ -1,0 +1,102 @@
+body{
+	background:white;
+	/*margin-top:50px;*/
+	font: 15px "Trebuchet MS";
+}
+
+h1{
+  font-family: 'Lato', sans-serif;
+}
+
+#header{
+  width:100%;
+  height:auto;
+  float:left;
+}
+
+#description_div{
+  width:65%;
+  height:auto;
+  /*border:1px solid red;*/
+  float:left;
+}
+
+#filter_div{
+  width:100%;
+  height:auto;
+  /*border:1px solid red;*/
+  float:left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#age_filter_div{
+  width:30%;
+  height:auto;
+  /*border:1px solid red;*/
+  float:left;
+}
+
+#profession_filter_div{
+  width:35%;
+  height:auto;
+  /*border:1px solid red;*/
+  float:left;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#map_div{
+    width:65%;
+    height:70vh;
+    /*border:1px solid red;*/
+    /*margin-right:10px;*/
+    float:left;
+}
+
+#violinplot_div{
+  width:35%;
+  height:70vh;
+  /*border:1px solid red;*/
+  font-size: calc(2vw + 2vh);
+  float:left;
+}
+
+#legend_div{
+  width: 65%;
+  height: 8vh;
+  float:left;
+  font-size:1.5em;
+  padding-left: 10px;
+}
+
+.headline, .subline{
+  display: block;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  fill: white;
+  font-family: 'PT Sans',sans-serif;
+  opacity: 0.5;
+}
+
+.headline{
+  font-weight: bold;
+}
+
+.subline{
+  font-size: 50%;
+  font-weight: thin;
+}
+
+.label{
+  font-family: 'PT Sans',sans-serif;
+  opacity: 1;
+  font-size: 30%;
+}
+
+#svg {
+  width:100%;
+  height: auto;
+}

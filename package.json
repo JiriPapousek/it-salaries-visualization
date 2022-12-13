@@ -1,0 +1,16 @@
+{
+  "name": "salaries-visualization",
+  "version": "1.0.0",
+  "description": "Visualization of IT salaries across countries",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jiří Papoušek",
+  "license": "ISC",
+  "dependencies": {
+    "d3-color-legend": "^1.3.2",
+    "d3-scale-chromatic": "^3.0.0",
+    "express": "^4.18.2"
+  }
+}
