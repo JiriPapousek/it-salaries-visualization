@@ -12,7 +12,6 @@ var selectedAge;
 var selectedDataPerCountry;
 
 var colorScaleSequential;
-var colorScaleThreshold;
 
 d3.csv("./public/data.csv")
   .row(function (d) {
@@ -53,27 +52,6 @@ function redrawLegend() {
 }
 
 function drawLegend() {
-  /*
-  svg = d3.select("#legend_div")
-          .append("svg")
-          .attr("width", "100%")
-          .attr("height", "100%");
-
-  svg.append("g")
-  .attr("class", "legendLinear")
-  .attr("font-size", d => `40px`);
-
-  var legendLinear = d3.legendColor()
-    .shapeWidth(width*(0.65/9.1))
-    .labelFormat(d3.format(".2f"))
-    .labels(d3.legendHelpers.thresholdLabels)
-    .orient('horizontal')
-    .scale(colorScaleThreshold);
-
-  svg.select(".legendLinear")
-    .call(legendLinear);
-  */
-
   legend({
     color: colorScaleSequential,
     title: "Average monthly income (EUR)",
@@ -251,16 +229,7 @@ function initColorScale() {
     }
   });
 
-  console.log(minValue);
-  console.log(maxValue);
-  console.log(minCountry);
-  console.log(maxCountry);
-  console.log(selectedDataPerCountry);
-
   colorScaleSequential = d3.scaleSequential().domain([minValue, maxValue]).interpolator(d3.interpolateYlGnBu);
-  colorScaleThreshold = d3.scaleThreshold()
-    .domain([1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000])
-    .range(d3.schemeYlGnBu[9]);
 }
 
 function getCountryColor(countryName) {
@@ -281,6 +250,7 @@ function redrawViolinPlot() {
   drawViolinPlot();
 }
 
+// Taken and modified from https://d3-graph-gallery.com/graph/violin_basicHist.html
 function drawViolinPlot() {
 
   svg = d3.select('#violinplot_div')
@@ -368,6 +338,7 @@ function redraw() {
   redrawLegend();
 }
 
+// Code for color legend is taken from https://observablehq.com/@d3/color-legend
 function legend({
   color,
   title,
@@ -383,18 +354,10 @@ function legend({
   tickValues
 } = {}) {
   svg = d3.select("#legend_div")
-  .append("svg")
-  .attr("width", "100%")
-  .attr("height", "100%")
-  .style("overflow", "visible");
-  /*
-  const svg = d3.select("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .attr("viewBox", [0, 0, width, height])
-    .style("overflow", "visible")
-    .style("display", "block");
-  */
+          .append("svg")
+          .attr("width", "100%")
+          .attr("height", "100%")
+          .style("overflow", "visible");
 
   let tickAdjust = g => g.selectAll(".tick line").attr("y1", marginTop + marginBottom - height);
   let x;
